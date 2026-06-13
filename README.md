@@ -4,16 +4,6 @@ Official compact implementation of **Key Step Concept Unlearning (KSCU)** for St
 
 KSCU removes target visual concepts by optimizing a dynamically selected late denoising region. This repository provides the quick training algorithm, edited-weight checkpoints, and single-image inference examples. It supports nudity, object class, artistic style, single-instance, and multi-instance unlearning.
 
-> This is the lightweight release of the training and inference code. The complete benchmark and evaluation framework is not included.
-
-## Highlights
-
-- Dynamic Key Step Table with ordered timestep traversal and trajectory reuse.
-- Hard scheduling constraint <code>S &lt; 0.9E</code>.
-- Prompt augmentation in both text and embedding spaces.
-- Conditional erasure with timestep-dependent unconditional leakage correction.
-- Simultaneous erasure of multiple comma-separated concepts.
-- Checkpoints contain edited parameters only; base-model weights are not redistributed.
 
 ## Repository Structure
 
@@ -279,11 +269,11 @@ The inference scripts load edited tensors into the corresponding base model and 
 If this code is useful in your research, please cite the KSCU paper:
 
 ~~~bibtex
-@misc{zhang2026kscu,
-  title   = {Concept Unlearning by Modeling Key Steps of Diffusion Process},
-  author  = {Zhang, Chaoshuo and Lin, Chenhao and Zhao, Zhengyu and Yang, Le and Zhang, Chong and Wang, Qian and Shen, Chao},
-  note    = {Manuscript},
-  year    = {2026}
+@article{zhang2025concept,
+  title={Concept unlearning by modeling key steps of diffusion process},
+  author={Zhang, Chaoshuo and Lin, Chenhao and Zhao, Zhengyu and Yang, Le and Wang, Qian and Shen, Chao},
+  journal={arXiv preprint arXiv:2507.06526},
+  year={2025}
 }
 ~~~
 
