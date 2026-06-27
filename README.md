@@ -88,7 +88,7 @@ The FLUX formulation does not interpret the 28-step array index as a diffusion t
 
 ## Default Protocol
 
-| Mode | Iterations | SD1.4 initial region | FLUX initial region | SD1.4 scope | FLUX scope |
+| Mode | SD1.4 Iterations | SD1.4 initial region | FLUX initial region | SD1.4 scope | FLUX scope |
 |---|---:|---:|---:|---|---|
 | <code>nudity</code> | 750 | 14-49 / 50 | 8-27 / 28 | non-cross-attention | attention projections |
 | <code>class</code> | 750 | 14-49 / 50 | 8-27 / 28 | non-cross-attention | attention projections |
