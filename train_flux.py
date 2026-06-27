@@ -101,6 +101,10 @@ def partial_denoise(pipe, latents, image_ids, encoded, timesteps, start_step, en
         return latents
     if hasattr(pipe.scheduler, "set_begin_index"):
         pipe.scheduler.set_begin_index(start_step)
+    # FlowMatchEulerDiscreteScheduler keeps an internal step cursor. KSCU repeatedly
+    # reconstructs partial trajectories, so each reconstruction must start fresh.
+    if hasattr(pipe.scheduler, "_step_index"):
+        pipe.scheduler._step_index = None
     for timestep in timesteps[start_step:end_step]:
         noise = predict_noise(pipe, latents, image_ids, timestep, encoded, guidance_scale)
         latents = pipe.scheduler.step(noise, timestep, latents, return_dict=False)[0]
